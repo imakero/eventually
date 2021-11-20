@@ -1,32 +1,34 @@
+import ContactForm from '../components/ContactForm'
+import Contacts from '../components/Contacts'
 import Section from '../components/Section'
 import { sanityClient } from '../sanity'
 
-export default function About({
-  companyInfoSection,
-  ceoInfoSection,
-  teamInfoSection,
-}) {
+export default function About({ sections, people }) {
   return (
     <main>
       <article>
-        <Section section={companyInfoSection} />
-        <Section section={teamInfoSection} />
-        <Section section={ceoInfoSection} />
+        <Section section={sections.companyInfoSection} />
+        <Section section={sections.teamInfoSection} />
+        <Section section={sections.ceoInfoSection} />
+        <Contacts person={people.ceo} />
+        <ContactForm />
       </article>
     </main>
   )
 }
 
 export const getStaticProps = async () => {
-  const query =
+  const sectionsQuery =
     '*[ _type == "section" && name in ["company-info", "ceo-info", "team-info"]]'
+  const peopleQuery = '*[ _type == "person" && role == "CEO" ]'
   const [companyInfoSection, ceoInfoSection, teamInfoSection] =
-    await sanityClient.fetch(query)
+    await sanityClient.fetch(sectionsQuery)
+  const [ceo] = await sanityClient.fetch(peopleQuery)
+
   return {
     props: {
-      companyInfoSection,
-      ceoInfoSection,
-      teamInfoSection,
+      sections: { companyInfoSection, ceoInfoSection, teamInfoSection },
+      people: { ceo },
     },
   }
 }
