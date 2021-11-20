@@ -15,9 +15,14 @@ a {
   box-sizing: border-box;
 }
 
-main.home {
+main {
+  padding: 1rem;
+}
+
+.event-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1rem;
 }
 
 img {
