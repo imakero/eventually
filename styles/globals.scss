@@ -15,11 +15,16 @@ a {
   box-sizing: border-box;
 }
 
-main {
+main.home {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
 img {
   max-width: 100%;
+}
+
+.image-container {
+  display: flex;
+  gap: 1rem;
 }

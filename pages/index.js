@@ -3,7 +3,7 @@ import { sanityClient } from '../sanity'
 
 export default function Home({ events }) {
   return (
-    <main>
+    <main className="home">
       {events.map((event) => (
         <Event event={event} key={event._id} />
       ))}
@@ -12,7 +12,7 @@ export default function Home({ events }) {
 }
 
 export const getStaticProps = async () => {
-  const query = '*[ _type == "event"]'
+  const query = '*[ _type == "event" && featured]'
   const events = await sanityClient.fetch(query)
 
   return {
