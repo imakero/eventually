@@ -1,0 +1,40 @@
+@use '../layout';
+@use '../variables' as *;
+@use 'sass:map';
+
+.site-navigation {
+  @include layout.flex(row, space-between);
+  padding: 1 * $spacing 2 * $spacing;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: calc(100% - 2 * $spacing);
+  margin: $spacing;
+  background: $bg-light;
+  border: $border;
+
+  h1 {
+    font-size: map.get($font-size, 'xl');
+    letter-spacing: 2px;
+    margin: 0;
+  }
+
+  ul {
+    @include layout.flex(row);
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+    margin-right: $spacing;
+  }
+
+  li:last-of-type {
+    margin-right: 0;
+  }
+
+  li:hover {
+    transform: scale(1.1);
+  }
+}

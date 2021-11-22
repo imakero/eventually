@@ -1,0 +1,19 @@
+$spacing: 1rem;
+$border: 2px solid black;
+
+$font-size: (
+  'xs': 0.75rem,
+  'sm': 0.875rem,
+  'md': 1rem,
+  'lg': 1.5rem,
+  'xl': 2rem,
+);
+
+$border-radius: (
+  'standard': 0.25rem,
+  'round': 50%,
+  'pill': 9999px,
+);
+
+$bg-light: #fcfbf2;
+$bg-primary: #adb3e9;

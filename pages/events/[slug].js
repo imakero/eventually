@@ -1,4 +1,4 @@
-import { sanityClient, urlFor } from '../../sanity'
+import { sanityClient, urlFor } from '../../lib/sanity'
 import BlockContent from '@sanity/block-content-to-react'
 import Image from 'next/image'
 import { EVENT_IMAGE_DIMENSIONS } from '../../constants'
@@ -13,7 +13,7 @@ export default function Event({ event }) {
       <div>{event.date}</div>
       <p>{event.description}</p>
       <BlockContent blocks={event.agenda} />
-      <div className="image-container">
+      <div>
         {event.images.map((image) => (
           <div key={image._key}>
             <Image

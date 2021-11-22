@@ -1,0 +1,25 @@
+@use '../variables' as *;
+@use '../layout';
+
+.home-image {
+  height: 50vh;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+.event-section {
+  margin: 2 * $spacing;
+
+  & > h2 {
+    text-align: center;
+    margin-bottom: 2 * $spacing;
+  }
+}
+
+.event-grid {
+  @include layout.responsiveGrid(300px);
+  margin: 0 $spacing;
+}
