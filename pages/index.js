@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function Home({ events, backgroundImage }) {
   return (
-    <main className="home">
+    <main className="page-home">
       <section className="home-image">
         <Image
           src={urlFor(backgroundImage).width(2000).height(1500).url()}

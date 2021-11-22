@@ -3,8 +3,8 @@ import { sanityClient } from '../lib/sanity'
 
 export default function Events({ events }) {
   return (
-    <main>
-      <h1>All Events</h1>
+    <main className="page-events">
+      <h2>All Events</h2>
       <section className="event-grid">
         {events.map((event) => (
           <Event event={event} key={event._id} />

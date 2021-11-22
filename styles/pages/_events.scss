@@ -1,0 +1,9 @@
+@use '../variables' as *;
+
+.page-events {
+  padding-top: 8 * $spacing;
+
+  h2 {
+    text-align: center;
+  }
+}
