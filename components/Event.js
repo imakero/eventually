@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { urlFor } from '../sanity'
+import { urlFor } from '../lib/sanity'
 import Link from 'next/link'
 import Image from 'next/image'
 import { EVENT_MAIN_IMAGE_DIMENSIONS } from '../constants'
@@ -23,7 +23,7 @@ export default function Event({ event }) {
       <button onClick={() => setShowInfo((previous) => !previous)}>
         More info
       </button>
-      <Link href={`events/${event.slug.current}`}>
+      <Link href={`/events/${event.slug.current}`}>
         <a>Go to details</a>
       </Link>
     </article>

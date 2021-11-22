@@ -1,7 +1,7 @@
 import ContactForm from '../components/ContactForm'
 import Contacts from '../components/Contacts'
 import Section from '../components/Section'
-import { sanityClient } from '../sanity'
+import { sanityClient } from '../lib/sanity'
 
 export default function About({ sections, people }) {
   return (

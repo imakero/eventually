@@ -1,5 +1,5 @@
 import Event from '../components/Event'
-import { sanityClient } from '../sanity'
+import { sanityClient } from '../lib/sanity'
 
 export default function Home({ events }) {
   return (

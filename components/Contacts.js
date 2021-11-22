@@ -1,11 +1,10 @@
-import { urlFor } from '../sanity'
+import { urlFor } from '../lib/sanity'
 import Image from 'next/image'
 import { CONTACTS_IMAGE_DIMENSIONS } from '../constants'
 
 export default function Contacts({ person }) {
   const { width, height } = CONTACTS_IMAGE_DIMENSIONS
 
-  console.log(person)
   return (
     <section>
       <Image
