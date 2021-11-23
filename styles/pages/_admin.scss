@@ -1,0 +1,12 @@
+@use '../variables' as *;
+@use '../layout';
+
+.page-admin {
+  margin: 3 * $spacing;
+
+  padding-top: 6 * $spacing;
+
+  form {
+    @include layout.twoThirdsGrid();
+  }
+}

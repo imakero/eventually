@@ -7,6 +7,7 @@
 @use 'pages/home';
 @use 'pages/events';
 @use 'pages/about';
+@use 'pages/admin';
 
 // components
 @use 'components/nav';
@@ -35,7 +36,8 @@ button:hover {
 }
 
 textarea,
-input {
+input,
+select {
   background-color: $bg-light;
   border: $border;
   border-radius: map.get($border-radius, 'standard');

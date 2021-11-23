@@ -1,9 +1,15 @@
-@use 'variables';
+@use 'variables' as *;
 
 @mixin responsiveGrid($itemWidth: 300px) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($itemWidth, 1fr));
-  gap: variables.$spacing;
+  gap: $spacing;
+}
+
+@mixin twoThirdsGrid() {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing;
 }
 
 @mixin flex($direction: row, $justify: flex-start) {
@@ -13,4 +19,4 @@
   flex-direction: $direction;
 }
 
-$padding: variables.$spacing;
+$padding: $spacing;
