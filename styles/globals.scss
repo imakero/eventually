@@ -1,17 +1,56 @@
 @use 'variables' as *;
 @use 'layout';
 @use 'reset';
+@use 'sass:map';
 
 // pages
 @use 'pages/home';
 @use 'pages/events';
+@use 'pages/about';
 
 // components
 @use 'components/nav';
+@use 'components/section';
 @use 'components/event-card';
+@use 'components/contact-form';
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,900;1,100;1,400;1,900&display=swap');
 
 body {
   background-color: $bg-light;
+}
+
+button {
+  border: $border;
+  border-radius: map.get($border-radius, 'pill');
+  padding: 0.5 * $spacing 1 * $spacing;
+  box-shadow: 0px 3px 0 1px black;
+  margin-bottom: 0.5 * $spacing;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0px 1px 0 1px black;
+  transform: translateY(1px);
+}
+
+textarea,
+input {
+  background-color: $bg-light;
+  border: $border;
+  border-radius: map.get($border-radius, 'standard');
+  outline: none;
+  padding: 1 * $spacing 1 * $spacing;
+  font-size: map.get($font-size, 'md');
+}
+
+textarea {
+  line-height: 1.5rem;
+}
+
+textarea:active,
+input:active,
+textarea:focus,
+input:focus {
+  background-color: $color-secondary;
 }

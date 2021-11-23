@@ -3,7 +3,7 @@
 @use 'sass:map';
 
 .event-card {
-  background-color: $bg-primary;
+  background-color: $color-primary;
   padding: $spacing;
   border: $border;
   border-radius: map.get($border-radius, 'standard');
@@ -26,20 +26,6 @@
     margin-top: $spacing;
   }
 
-  button {
-    border: $border;
-    border-radius: map.get($border-radius, 'pill');
-    padding: 0.5 * $spacing 1 * $spacing;
-    box-shadow: 0px 2px 0 1px black;
-    margin-bottom: 0.5 * $spacing;
-    cursor: pointer;
-  }
-
-  button:hover {
-    box-shadow: 0px 1px 0 1px black;
-    transform: translateY(1px);
-  }
-
   .details-link:hover {
     transform: scale(1.05);
   }
@@ -47,7 +33,7 @@
   .badge {
     border-radius: map.get($border-radius, 'pill');
     padding: 0.25 * $spacing 0.5 * $spacing;
-    background-color: rgb(252, 141, 204);
+    background-color: $color-secondary;
     color: black;
     border: $border;
     font-size: map.get($font-size, 'xs');

@@ -1,7 +1,13 @@
 @use '../variables' as *;
+@use '../layout';
 
 .page-events {
-  padding-top: 8 * $spacing;
+  padding-top: 6 * $spacing;
+
+  .event-grid {
+    margin: 2 * $spacing;
+    @include layout.responsiveGrid(300px);
+  }
 
   h2 {
     text-align: center;

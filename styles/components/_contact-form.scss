@@ -1,0 +1,24 @@
+@use '../variables' as *;
+@use 'sass:map';
+
+.component-contact-form {
+  padding: $spacing;
+  margin: $spacing;
+  border: $border;
+  border-radius: map.get($border-radius, 'standard');
+  background-color: $color-primary;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: $spacing;
+  }
+
+  label {
+    margin-top: 1 * $spacing;
+  }
+}

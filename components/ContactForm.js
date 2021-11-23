@@ -12,7 +12,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section>
+    <section className="component-contact-form">
       <h2>Contact form</h2>
       {!submitted ? (
         <form onSubmit={handleSubmit} className="column">

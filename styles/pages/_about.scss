@@ -1,0 +1,20 @@
+@use '../variables' as *;
+@use 'sass:map';
+
+.page-about {
+  margin: 2 * $spacing;
+
+  padding-top: 6 * $spacing;
+
+  // .about-sections {
+  //   section {
+  //     border-radius: map.get($border-radius, 'small');
+  //   }
+  //   section:nth-of-type(odd) {
+  //     background-color: $color-primary;
+  //   }
+  //   section:nth-of-type(even) {
+  //     background-color: $color-secondary;
+  //   }
+  // }
+}

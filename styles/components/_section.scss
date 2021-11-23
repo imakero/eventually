@@ -1,0 +1,6 @@
+@use '../variables' as *;
+
+.text-section {
+  margin: $spacing;
+  line-height: 1.5rem;
+}
