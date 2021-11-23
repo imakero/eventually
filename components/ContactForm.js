@@ -6,9 +6,21 @@ export default function ContactForm() {
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
+
     setSubmitted(true)
+    const res = await fetch('/api/message', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    })
   }
 
   return (

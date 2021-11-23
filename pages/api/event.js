@@ -5,7 +5,6 @@ export default async function handler(req, res) {
   switch (req.method) {
     case 'POST':
       const result = await sanityClient.create(prepareEvent(req.body))
-      console.log(result)
       break
   }
 

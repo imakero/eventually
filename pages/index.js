@@ -32,7 +32,6 @@ export const getStaticProps = async () => {
     '*[_type == "websiteImage" && name == "home-bg"]{image}'
   const [{ image }] = await sanityClient.fetch(backgroundImageQuery)
 
-  console.log('image', image)
   return {
     props: {
       events,

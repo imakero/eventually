@@ -21,7 +21,6 @@ export default function Admin() {
       category,
     }
 
-    console.log(URL.createObjectURL(coverImage))
     setImg(URL.createObjectURL(coverImage))
     const formData = new FormData()
     formData.append('cover-image', coverImage)
