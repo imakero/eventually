@@ -1,12 +1,24 @@
 @use '../variables' as *;
 @use '../layout';
+@use 'sass:map';
 
 .page-admin {
-  margin: 3 * $spacing;
-
+  margin: 0 3 * $spacing;
   padding-top: 6 * $spacing;
+  padding-bottom: 2 * $spacing;
+
+  h2 {
+    text-align: center;
+  }
 
   form {
     @include layout.twoThirdsGrid();
+  }
+
+  button {
+    grid-column: 1/3;
+    font-size: map.get($font-size, 'md');
+    font-weight: bold;
+    letter-spacing: 1px;
   }
 }

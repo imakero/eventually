@@ -29,13 +29,4 @@
   .details-link:hover {
     transform: scale(1.05);
   }
-
-  .badge {
-    border-radius: map.get($border-radius, 'pill');
-    padding: 0.25 * $spacing 0.5 * $spacing;
-    background-color: $color-secondary;
-    color: black;
-    border: $border;
-    font-size: map.get($font-size, 'xs');
-  }
 }

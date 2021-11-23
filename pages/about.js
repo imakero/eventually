@@ -28,14 +28,15 @@ export default function About({ sections, people, teamImage }) {
 
 export const getStaticProps = async () => {
   const sectionsQuery =
-    '*[ _type == "section" && name in ["company-info", "ceo-info", "team-info"]]'
+    '*[ _type == "section" && name in ["company-info", "ceo-info", "team-info"]] | order(name)'
   const peopleQuery = '*[ _type == "person" && role == "CEO" ]'
   const teamImageQuery =
     '*[_type == "websiteImage" && name == "the-team"]{image}'
-  const [companyInfoSection, ceoInfoSection, teamInfoSection] =
+  const [ceoInfoSection, companyInfoSection, teamInfoSection] =
     await sanityClient.fetch(sectionsQuery)
   const [ceo] = await sanityClient.fetch(peopleQuery)
   const [{ image }] = await sanityClient.fetch(teamImageQuery)
+
   return {
     props: {
       sections: { companyInfoSection, ceoInfoSection, teamInfoSection },

@@ -8,6 +8,7 @@
 @use 'pages/events';
 @use 'pages/about';
 @use 'pages/admin';
+@use 'pages/details';
 
 // components
 @use 'components/nav';
@@ -19,6 +20,11 @@
 
 body {
   background-color: $bg-light;
+}
+
+.site-container {
+  margin: 0 auto;
+  max-width: $page-width;
 }
 
 button {
@@ -48,6 +54,7 @@ select {
 
 textarea {
   line-height: 1.5rem;
+  resize: none;
 }
 
 textarea:active,
@@ -55,4 +62,13 @@ input:active,
 textarea:focus,
 input:focus {
   background-color: $color-secondary;
+}
+
+.badge {
+  border-radius: map.get($border-radius, 'pill');
+  padding: 0.25 * $spacing 0.5 * $spacing;
+  background-color: $color-secondary;
+  color: black;
+  border: $border;
+  font-size: map.get($font-size, 'xs');
 }

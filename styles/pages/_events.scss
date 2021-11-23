@@ -6,7 +6,7 @@
 
   .event-grid {
     margin: 2 * $spacing;
-    @include layout.responsiveGrid(300px);
+    @include layout.responsiveGrid(250px);
   }
 
   h2 {

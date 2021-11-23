@@ -4,15 +4,20 @@
 
 .site-navigation {
   @include layout.flex(row, space-between);
-  padding: 1 * $spacing 2 * $spacing;
+  padding: $spacing 2 * $spacing;
   position: fixed;
+  max-width: calc($page-width - 2 * $spacing);
   top: 0;
-  left: 0;
+
   z-index: 2;
   width: calc(100% - 2 * $spacing);
-  margin: $spacing;
+  margin: 0 $spacing;
   background: $color-secondary;
   border: $border;
+  border-top: none;
+  border-radius: map.get($border-radius, 'standard');
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 
   h1 {
     font-size: map.get($font-size, 'xl');
@@ -36,5 +41,9 @@
 
   li:hover {
     transform: scale(1.1);
+  }
+
+  .active {
+    font-weight: bold;
   }
 }

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { EVENT_MAIN_IMAGE_DIMENSIONS } from '../constants'
 import { FaRegCalendarAlt } from 'react-icons/fa'
+import Date from './Date'
 
 export default function Event({ event }) {
   const [showInfo, setShowInfo] = useState(false)
@@ -25,9 +26,7 @@ export default function Event({ event }) {
         </Link>
       </div>
       <div className="event-info">
-        <span className="date">
-          <FaRegCalendarAlt /> {event.date}
-        </span>
+        <Date date={event.date} />
         <span className="badge">{event.category}</span>
       </div>
       {showInfo ? <p>{event.description}</p> : null}

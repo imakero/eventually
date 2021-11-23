@@ -42,6 +42,7 @@ export default function Admin() {
 
   return (
     <main className="page-admin">
+      <h2>Create new event</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input

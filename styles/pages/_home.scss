@@ -2,10 +2,14 @@
 @use '../layout';
 
 .page-home {
-  .home-image {
-    height: 50vh;
-    overflow: hidden;
+  padding-top: 65vh;
 
+  .home-image {
+    height: 65vh;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
     img {
       width: 100%;
     }
@@ -21,7 +25,7 @@
   }
 
   .event-grid {
-    @include layout.responsiveGrid(300px);
+    @include layout.responsiveGrid(250px);
     margin: 0 $spacing;
 
     & > * {

@@ -1,0 +1,37 @@
+@use '../variables' as *;
+@use 'sass:map';
+
+.page-details {
+  margin: 3 * $spacing;
+  padding-top: 6 * $spacing;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  .date {
+    margin-right: $spacing;
+  }
+
+  .event-images {
+    display: flex;
+    flex-flow: row wrap;
+    gap: $spacing;
+    padding: $spacing;
+    border: $border;
+    border-radius: map.get($border-radius, 'standard');
+    background-color: $color-primary;
+
+    .event-image-container {
+      display: inline-block;
+      width: 260px;
+    }
+
+    .event-image-container:hover {
+      transform: scale(calc(270 / 260));
+    }
+    // .event-image-container:hover {
+    //   width: 270px;
+    // }
+  }
+}
