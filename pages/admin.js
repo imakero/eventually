@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import ImageUploader from '../components/ImageUploader'
 
 export default function Admin() {
   const [title, setTitle] = useState('')
@@ -7,37 +8,62 @@ export default function Admin() {
   const [agenda, setAgenda] = useState('')
   const [coverImage, setCoverImage] = useState(null)
   const [eventImages, setEventImages] = useState([])
-  const [img, setImg] = useState('#')
-
+  const [allImages, setAllImages] = useState([])
+  const [submit, setSubmit] = useState(false)
+  const [eventData, setEventData] = useState(null)
   const [category, setCategory] = useState('entertainment')
+
+  useEffect(() => {
+    const submitEvent = async () => {
+      await fetch('/api/event', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(eventData),
+      })
+    }
+
+    if (submit) {
+      submitEvent()
+    }
+  }, [submit])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const values = {
+
+    setEventData({
       title,
       date,
       description,
       agenda,
       category,
-    }
-
-    setImg(URL.createObjectURL(coverImage))
-    const formData = new FormData()
-    formData.append('cover-image', coverImage)
-    await fetch('/api/image', {
-      method: 'POST',
-      body: formData,
+      images: [],
     })
-    // await fetch('/api/event', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(values),
-    // })
+
+    setAllImages([coverImage, ...eventImages])
   }
 
-  //console.log(title, date, description, agenda, category)
+  const handleImageUpload = (imageData, altText) => {
+    const images = [...eventData.images, { imageData, altText }]
+    setEventData((previousData) => ({ ...previousData, images }))
+  }
+
+  if (
+    eventData?.images.length &&
+    eventData.images.length === allImages.length &&
+    !submit
+  ) {
+    setSubmit(true)
+  }
+
+  if (submit) {
+    return (
+      <main className="page-admin">
+        <h2>Your event has been submit!</h2>
+      </main>
+    )
+  }
 
   return (
     <main className="page-admin">
@@ -97,6 +123,7 @@ export default function Admin() {
           id="images"
           accept="image/*"
           multiple
+          onChange={(event) => setEventImages(event.target.files)}
         />
 
         <label htmlFor="category"></label>
@@ -113,6 +140,7 @@ export default function Admin() {
 
         <button type="submit">Skapa event</button>
       </form>
+      <ImageUploader images={allImages} callback={handleImageUpload} />
     </main>
   )
 }

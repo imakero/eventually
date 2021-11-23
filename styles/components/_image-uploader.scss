@@ -1,0 +1,41 @@
+@use '../variables' as *;
+@use '../layout';
+@use 'sass:map';
+
+.image-uploader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    padding: $spacing;
+    border-radius: map.get($border-radius, 'standard');
+    border: $border;
+    background: $color-primary;
+    max-height: 90vh;
+    max-width: 90vh;
+  }
+
+  form {
+    @include layout.twoThirdsGrid();
+    label {
+      align-self: center;
+      justify-self: center;
+    }
+  }
+
+  img {
+    margin: $spacing auto;
+    display: block;
+    width: 100%;
+    max-height: 50%;
+    max-width: 50%;
+  }
+}
